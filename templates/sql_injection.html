@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Phishing Detector</title>
+    <title>SQL Injection detection</title>
     <style>
         body {
             font-family: 'Cascadia Code', monospace; /* Use the Cascadia Code font */
@@ -80,6 +80,7 @@
         }
 
 
+
         input[type="submit"] {
             background-color: transparent;
             color: #fff;
@@ -149,10 +150,10 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="{% url 'list_website' %}" style="float: right;">Phishing Websites List</a>
+        <a href="{% url 'list_sqli' %}" style="float: right;">Sql Injected Websites List</a>
     </div>
 
-    <h1>Phishing Website Detection</h1>
+    <h1>Sql Injection Detection</h1>
     <!-- <div class="form-container"> -->
         <form method="post">
             {% csrf_token %}
@@ -172,6 +173,6 @@
     {% endif %}
 
 
-    <h3>Worried about SQL injection on websites? <a href="{% url 'sql_injection' %}" >Click here to investigate.</a></h3>
+    <h3>Worried about the security of websites? Let's investigate their phishing status  <a href="{% url 'check_phishing' %}">Click Here.</a></h3>
 </body>
 </html>
