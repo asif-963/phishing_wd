@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-nmle!zv4325i$*odilbvq5g#=rw9*-@wu97mub7y$+1-&gua4p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['phishing-websites.onrender.com']
 
 
 # Application definition
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-     'whitenoise.middleware.WhiteNoiseMiddleware',
+    #  'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -87,11 +87,21 @@ WSGI_APPLICATION = 'phishing_wd.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+
+# }
+
 DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
-
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'phishingwebsites',
+        'USER': 'myuser',
+        'PASSWORD': 'myuser',
+        'HOST': 'phishing-websites.onrender.com',  # Use 'localhost' if your PostgreSQL server is on the same machine
+        'PORT': '5432',           # Leave it empty for the default port (5432)
+    }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -131,7 +141,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
 ]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
