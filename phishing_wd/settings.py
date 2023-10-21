@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': 'phishingwebsites',
         'USER': 'myuser',
         'PASSWORD': 'myuser',
-        'HOST': '216.24.57.253',  # Use 'localhost' if your PostgreSQL server is on the same machine
+        'HOST': '216.24.57.1',  # Use 'localhost' if your PostgreSQL server is on the same machine
         'PORT': '5432',           # Leave it empty for the default port (5432)
     }
 }
